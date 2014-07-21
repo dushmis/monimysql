@@ -5,7 +5,7 @@ import re
 from moni import moni
 
 def connect_db():
-  connector = MySQLdb.connect(host="IP", user="USER", passwd="PASS", db="DB")
+  connector = MySQLdb.connect(host="IP", user="USER", passwd="PASSWORD", db="DB")
   return {"db":connector,"cur":connector.cursor()}
   
 def get_list_pid():
