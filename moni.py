@@ -33,13 +33,13 @@ class moni:
       self.query = None
     
   def knownhost(self):
-    return ( re.search("webcast:[0-9]*",self.host) or re.search("www.youbroadband.in:[0-9]*",self.host))
+    return ( re.search("web:[0-9]*",self.host) or re.search("www.:[0-9]*",self.host))
     
   def isselectquery(self):
     return (re.search("select.*",self.query)) 
     
   def valkill(self):
-    return self.time > 25 and self.knownhost() and self.command=="Query" and self.isselectquery()
+    return self.time > 2500 and self.knownhost() and self.command=="Query" and self.isselectquery()
     
   def killem(self,connection):
     if self.valkill():
