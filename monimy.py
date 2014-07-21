@@ -2,7 +2,7 @@
 
 import MySQLdb
 import re
-import moni
+from moni import moni
 
 def connect_db():
   connector = MySQLdb.connect(host="IP", user="USER", passwd="PASS", db="DB")
@@ -15,7 +15,7 @@ def get_list_pid():
   mycur=connector["cur"]
   mycur.execute(sql)
   for row in mycur.fetchall():
-    mon=moni.moni(row)
+    mon=moni(row)
     if mon.valkill():
       mon.killem(mycur)
       list.append(mon)
